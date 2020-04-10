@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+    <title>Test</title>
+</head>
+<body>
+    <div class="continer-fluid">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Country</th>
+                    <th scope="col">Confirmed</th>
+                    <th scope="col">Deaths</th>
+                    <th scope="col">Recovered</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                    {% for data_c in country_name %}
+                  <tr>
+                    <td>{{data_c["Country"]}}</td>
+                    <td>{{data_c["TotalConfirmed"]}}</td>
+                    <td>{{data_c["TotalDeaths"]}}</td>
+                    <td>{{data_c["TotalRecovered"]}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                
+              </table>
+        </div>
+    </div>
+    <!-- {% for data_c in country_name %}
+    <p>{{data_c["Country"]}}</p>
+    <p>Total confirmed =>> {{data_c["TotalConfirmed"]}}</p>
+    <p>Total Deaths ==>> {{data_c["TotalDeaths"]}}</p>
+    {% endfor %} -->
+</body>
+{% endblock %}
