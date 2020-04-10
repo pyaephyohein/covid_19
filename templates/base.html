@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="/static/world.css" />
+    <title>{% block title %}{{cn['name']}}{% endblock %} - World Factbook</title>
+    {% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src='../static/jquery.min.js'> </script>
+  <script src='../static/quiz.js'></script>
+    <link rel="shortcut icon" href="../static/world.png" />
+</head>
+<body style="background-color: lightgray;">
+    <div id="header" class="container-fluid" style="background-color: lightgray;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: lightgray;">
+        <div class="spinner-grow text-secondary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+       
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Continents
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% for name in continent_list %}
+                <a class="dropdown-item" href="/continent/{{name}}">{{name}}</a>
+                {% endfor %}
+              </div>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/quiz">Quiz <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/update">Add New<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/rank">Rank<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+            <!-- {% for name in continent_list %}
+            <li class="nav-item">
+              <a class="nav-link" href="/continent/{{name}}">{{name}}</a>
+            </li>
+            {% endfor %} -->
+      </nav>
+    </div>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <!-- Footer -->
+<footer class="page-footer font-small gray">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://napier.ac.uk/"> Edinburgh Napier University</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

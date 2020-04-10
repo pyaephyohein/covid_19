@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    {% for data_c in country_name %}
+    <p>{{data_c["Country"]}}</p>
+    <p>Total confirmed =>> {{data_c["TotalConfirmed"]}}</p>
+    <p>Total Deaths ==>> {{data_c["TotalDeaths"]}}</p>
+    {% endfor %}
+</body>
+</html>
