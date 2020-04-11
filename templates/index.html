@@ -5,11 +5,51 @@
 </head>
 <body>
     <div class="container-fluid">
-            <div>
-                {% for data in global_data %}
-                <div style="margin-left:50%;">{{data}}</div>
+        <div class="row">
+            <div class="col"style="float: left;font-size: 40px;text-align: center;">
+                {% for date in date_raw %}
+                {{date}}
                 {% endfor %}
             </div>
+      </div>
+      <div class="row"">
+        <div class="col">
+            {% for global in globle_raw %}
+            {{global}}
+            {% endfor %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Country</th>
+                    <th scope="col">New Confirmed</th>
+                    <th scope="col">New Deaths</th>
+                    <th scope="col">New Recovered</th>
+                    <th scope="col">Total Confirmed</th>
+                    <th scope="col">TotalDeaths</th>
+                    <th scope="col">Total Recovered</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                    {% for mm in mm_raw %}
+                  <tr>
+                    <td>{{mm["Country"]}}</td>
+                    <td>{{mm["NewConfirmed"]}}</td>
+                    <td>{{mm["NewDeaths"]}}</td>
+                    <td>{{mm["NewRecovered"]}}</td>
+                    <td>{{mm["TotalConfirmed"]}}</td>
+                    <td>{{mm["TotalDeaths"]}}</td>
+                    <td>{{mm["TotalRecovered"]}}</td>
+                  </tr>
+                    {% endfor %}
+                </tbody>
+                
+              </table>
+        </div>
       </div>
     </div>
 </body>

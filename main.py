@@ -9,6 +9,6 @@ def list():
     return render_template('list.html', country_name = [ cname for  cname in (country_list['Countries'])] )
 @app.route('/')
 def home():
-    return render_template('index.html', global_data = [ glol for glol in (country_list['Date'][0:10])])
+    return render_template('index.html', date_raw = [ date for date in (country_list['Date'][0:10])],mm_raw = [ mm for mm in country_list['Countries'] if mm['Country']=="Myanmar"])
 if  __name__ == "__main__":
     app.run(debug=True)
