@@ -3,39 +3,32 @@
 {% block content %}
     <title>Test</title>
 </head>
-<body>
+<body style="background-color:lightskyblue;">
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center"style="float: left;font-size: 40px;">
+            <div class="col margin-top-3 text-center"style="float: left;font-size: 40px;">
                 {% for date in date_raw %}
                 {{date}}
                 {% endfor %}
             </div>
-      </div>
-      <div class="row">
-        <div class="col text-center">
-            {% for global in globle_raw %}
-            {{global}}
-            {% endfor %}
         </div>
-      </div>
-      <div class="row margin-top-3">
+        <div class="row margin-top-3">
           <div class="col text-center"> 
             <H1>Myanmar</H1>
           </div>
-      </div>
-      <div class="row margin-top-3">
+        </div>
+        <div class="row margin-top-3">
           <div class="col text-center" >
               <h2>New Cases</h2>
           </div>
           <div class="col text-center">
             <h2>New Recovered</h2>
-        </div>
+          </div>
         <div class="col text-center">
             <h2>New Deaths</h2>
         </div>
-      </div>
-      <div class="row margin-top-3">
+       </div>
+       <div class="row margin-top-3">
         {% for mm in mm_raw %}
         <div class="col text-center" >
             <h2>{{mm["NewConfirmed"]}}</h2>
@@ -71,39 +64,7 @@
         <h2>{{mm["TotalDeaths"]}}</h2>
     </div>
       {% endfor %}
-  </div>
-      <!-- <div class="row">
-        <div class="col">
-            <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Country</th>
-                    <th scope="col">New Confirmed</th>
-                    <th scope="col">New Deaths</th>
-                    <th scope="col">New Recovered</th>
-                    <th scope="col">Total Confirmed</th>
-                    <th scope="col">TotalDeaths</th>
-                    <th scope="col">Total Recovered</th>
-                  </tr>
-                </thead>
-                
-                <tbody>
-                    {% for mm in mm_raw %}
-                  <tr>
-                    <td>{{mm["Country"]}}</td>
-                    <td>{{mm["NewConfirmed"]}}</td>
-                    <td>{{mm["NewDeaths"]}}</td>
-                    <td>{{mm["NewRecovered"]}}</td>
-                    <td>{{mm["TotalConfirmed"]}}</td>
-                    <td>{{mm["TotalDeaths"]}}</td>
-                    <td>{{mm["TotalRecovered"]}}</td>
-                  </tr>
-                    {% endfor %}
-                </tbody>
-                
-              </table>
-        </div>
-      </div> -->
     </div>
+  </div>
 </body>
 {% endblock %}

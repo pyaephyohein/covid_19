@@ -10,5 +10,11 @@ def list():
 @app.route('/')
 def home():
     return render_template('index.html', date_raw = [ date for date in (country_list['Date'][0:10])],mm_raw = [ mm for mm in country_list['Countries'] if mm['Country']=="Myanmar"])
+@app.route('/contactmap')
+def contactmap():
+    return render_template('contactmap.html')
+@app.route('/patientmap')
+def patientmap():
+    return render_template('patientmap.html')
 if  __name__ == "__main__":
     app.run(debug=True)
