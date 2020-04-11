@@ -6,20 +6,73 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col"style="float: left;font-size: 40px;text-align: center;">
+            <div class="col text-center"style="float: left;font-size: 40px;">
                 {% for date in date_raw %}
                 {{date}}
                 {% endfor %}
             </div>
       </div>
-      <div class="row"">
-        <div class="col">
+      <div class="row">
+        <div class="col text-center">
             {% for global in globle_raw %}
             {{global}}
             {% endfor %}
         </div>
       </div>
-      <div class="row">
+      <div class="row margin-top-3">
+          <div class="col text-center"> 
+            <H1>Myanmar</H1>
+          </div>
+      </div>
+      <div class="row margin-top-3">
+          <div class="col text-center" >
+              <h2>New Cases</h2>
+          </div>
+          <div class="col text-center">
+            <h2>New Recovered</h2>
+        </div>
+        <div class="col text-center">
+            <h2>New Deaths</h2>
+        </div>
+      </div>
+      <div class="row margin-top-3">
+        {% for mm in mm_raw %}
+        <div class="col text-center" >
+            <h2>{{mm["NewConfirmed"]}}</h2>
+        </div>
+        <div class="col text-center">
+          <h2>{{mm["NewRecovered"]}}</h2>
+      </div>
+      <div class="col text-center">
+          <h2>{{mm["NewDeaths"]}}</h2>
+      </div>
+        {% endfor %}
+    </div>
+    <div class="row margin-top-3">
+        <div class="col text-center" >
+            <h2>Total Cases</h2>
+        </div>
+        <div class="col text-center">
+          <h2>Total Recovered</h2>
+      </div>
+      <div class="col text-center">
+          <h2>Total Deaths</h2>
+      </div>
+    </div>
+    <div class="row margin-top-3">
+      {% for mm in mm_raw %}
+      <div class="col text-center" >
+          <h2>{{mm["TotalConfirmed"]}}</h2>
+      </div>
+      <div class="col text-center">
+        <h2>{{mm["TotalRecovered"]}}</h2>
+    </div>
+    <div class="col text-center">
+        <h2>{{mm["TotalDeaths"]}}</h2>
+    </div>
+      {% endfor %}
+  </div>
+      <!-- <div class="row">
         <div class="col">
             <table class="table table-striped">
                 <thead>
@@ -50,7 +103,7 @@
                 
               </table>
         </div>
-      </div>
+      </div> -->
     </div>
 </body>
 {% endblock %}
