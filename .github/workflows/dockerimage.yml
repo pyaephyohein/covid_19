@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Docker login
+      run : docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build the Docker image
+      run: docker build -t mm_covid19:latest .
+    - name: Tags
+      run: |
+        docker tag mm_covid19 ${{ secrets.DOCKER_USER }}/mm_covid19:${{ github.sha }}
+        docker tag mm_covid19 ${{ secrets.DOCKER_USER }}/mm_covid19:latest
+    - name: Push to docker hub
+      run : |   
+        docker push ${{ secrets.DOCKER_USER }}/mm_covid19:latest
+
